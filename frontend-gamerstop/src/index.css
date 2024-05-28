@@ -1,0 +1,22 @@
+.login-container {
+  height: 60vh;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.bg-red {
+  background-color: red;
+}
+
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .navbar-brand {
+  color: white !important;
+}

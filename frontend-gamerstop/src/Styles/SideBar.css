@@ -1,0 +1,62 @@
+/* AdminSidebar.css */
+
+/* Estilos generales del sidebar */
+.sidebar {
+    width: 250px;
+    /* Ancho del sidebar */
+    height: 100%;
+    /* Altura del sidebar */
+    position: fixed;
+    /* Para que el sidebar esté fijo en la pantalla */
+    top: 40;
+    /* Desde arriba */
+    left: 0;
+    /* Desde la izquierda */
+    background-color: #343a40;
+    /* Color de fondo del sidebar */
+    color: white;
+    /* Color del texto */
+    padding-top: 60px;
+    /* Espacio superior */
+}
+
+/* Estilos para el logo */
+.logo {
+    text-align: center;
+    /* Alineación central del logo */
+    margin-bottom: 20px;
+    /* Espacio inferior del logo */
+}
+
+.logo img {
+    width: 80px;
+    /* Ancho del logo */
+    height: 80px;
+    /* Altura del logo */
+    border-radius: 50%;
+    /* Bordes redondeados del logo */
+}
+
+/* Estilos para los ítems de la lista */
+.nav-link {
+    padding: 10px 20px;
+    /* Relleno interno de los ítems de la lista */
+    margin-bottom: 10px;
+    /* Espacio inferior entre ítems */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave del color de fondo */
+}
+
+/* Estilos para los ítems activos */
+.nav-link.active {
+    background-color: #6c757d;
+    /* Color de fondo de los ítems activos */
+}
+
+/* Estilos para los íconos */
+.nav-link i {
+    margin-right: 10px;
+    /* Margen derecho de los íconos */
+}

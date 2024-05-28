@@ -1,0 +1,14 @@
+/* Admin.css */
+
+/* Estilos para el contenido */
+.content {
+    margin-left: 250px;
+    /* Ajusta el margen izquierdo para que no se superponga con el sidebar */
+    padding-top: 50px;
+    /* Espacio superior para evitar que el contenido se superponga con el navbar */
+}
+
+/* Asegura que el navbar esté por encima del sidebar */
+.navbar {
+    z-index: 1001;
+}
