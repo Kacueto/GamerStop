@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { CartContext } from './Public/CartContext';
@@ -11,33 +11,33 @@ const Product = () => {
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useContext(CartContext);
 
-    useEffect(() => {
-        fetchProduct();
-    }, [id]);
-
-    useEffect(() => {
-        if (product.category) {
-            fetchRelatedProducts();
-        }
-    }, [product]);
-
-    const fetchProduct = async () => {
+    const fetchProduct = useCallback(async () => {
         try {
             const response = await axios.get(`http://localhost:8000/inventory/show_product/${id}`);
             setProduct(response.data);
         } catch (error) {
             console.error('Error fetching product:', error);
         }
-    };
+    }, [id]);
 
-    const fetchRelatedProducts = async () => {
+    const fetchRelatedProducts = useCallback(async () => {
         try {
             const response = await axios.get(`http://localhost:8000/inventory/show_products_by_category/${product.category}`);
             setRelatedProducts(response.data);
         } catch (error) {
             console.error('Error fetching related products:', error);
         }
-    };
+    }, [product.category]);
+
+    useEffect(() => {
+        fetchProduct();
+    }, [fetchProduct]);
+
+    useEffect(() => {
+        if (product.category) {
+            fetchRelatedProducts();
+        }
+    }, [product, fetchRelatedProducts]);
 
     const handleAddToCart = () => {
         addToCart(product, quantity);
@@ -59,11 +59,11 @@ const Product = () => {
                 <div className="product-info">
                     <h2>{product.name}</h2>
                     <p>{product.description}</p>
-                    <p>Precio: ${product.price}</p>
+                    <p>Price: ${product.price}</p>
                     <div className="product-purchase">
-                        <button className="add-to-cart-btn" onClick={handleAddToCart}>Agregar al carro</button>
+                        <button className="add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
                         <label>
-                            Cantidad:
+                            Quantity:
                             <input
                                 type="number"
                                 value={quantity}
@@ -77,7 +77,7 @@ const Product = () => {
                 </div>
             </div>
             <div className="related-products">
-                <h3>Productos relacionados</h3>
+                <h3>Related Products</h3>
                 <div className="related-products-list">
                     {relatedProducts.map((relatedProduct) => (
                         relatedProduct.id !== product.id && (
