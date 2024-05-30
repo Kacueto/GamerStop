@@ -1,4 +1,4 @@
-/* AgregarProductoModal.css */
+/* EditarProductoModal.css */
 .modal {
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 60px; /* Añadido margen superior para separar el modal del navbar */
+    padding-top: 60px;
 }
 
 .modal-content {

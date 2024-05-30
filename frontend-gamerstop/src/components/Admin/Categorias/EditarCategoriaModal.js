@@ -13,7 +13,7 @@ const EditarCategoriaModal = ({ categoria, onClose }) => {
         };
 
         try {
-            await axios.put(`http://localhost:8000/inventory/edit_category/${categoria.id}/`, data);
+            await axios.put(`http://localhost:8000/inventory/update_category/${categoria.id}/`, data);
             console.log('Categoría editada exitosamente');
             onClose(); // Cierra el modal después de editar
         } catch (error) {

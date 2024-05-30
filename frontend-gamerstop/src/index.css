@@ -1,22 +1,59 @@
-.login-container {
-  height: 60vh;
+.navbar {
+  padding: 0px; /* Añadir padding de 35 píxeles a cada lado */
 }
 
-.login-box {
-  width: 100%;
-  max-width: 400px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.navbar-brand.text-red {
+  color: red;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-left: 125px; 
+
 }
-.bg-red {
+
+
+.navbar-brand.text-red:hover {
+  color: darkred;
+}
+
+.navbar .form-control {
+  width: 500px; /* Aumentar la anchura en 25 píxeles */
+}
+
+.navbar .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
   background-color: red;
+  color: white;
+  border-radius: 50%;
 }
 
-.navbar .nav-link {
-  color: white !important;
+.bg-light {
+  background-color: #f8f9fa !important;
 }
 
-.navbar .navbar-brand {
-  color: white !important;
+.nav.justify-content-start .nav-item .nav-link {
+  background-color: transparent;
+  margin-right: 10px; /* Espacio entre categorías */
+  border: none;
+  padding: 5px 10px;
 }
+
+.nav.justify-content-start .nav-item .nav-link:hover {
+  background-color: #ced4da; /* Color gris más oscuro al pasar el mouse */
+}
+
+.dropdown-menu {
+  position: absolute;
+  will-change: transform;
+  top: 100%;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+  display: none; /* Ocultar por defecto */
+}
+
+.dropdown-menu.show {
+  display: block; /* Mostrar cuando se selecciona */
+}
+

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../Public/Navbar';
 import AdminSidebar from './SideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Styles/Admin.css'; 
@@ -32,7 +31,7 @@ const Admin = () => {
 
     return (
         <div>
-            <Navbar />
+            
             <AdminSidebar onSidebarItemClick={handleSidebarItemClick} />
             <div className="content"> {/* Contenedor para el contenido */}
                 <div className="container-fluid">

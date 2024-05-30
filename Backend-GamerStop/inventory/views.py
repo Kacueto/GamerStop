@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Products, Category
@@ -64,4 +63,14 @@ def delete_product(request, pk):
 def show_products_by_category(request, pk):
     products = Products.objects.filter(category=pk)
     serializer = ProductsSerializer(products, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def random_products(request):
+    products = Products.objects.order_by('?')[:6]
+    serializer = ProductsSerializer(products, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def show_product(request, pk):
+    product = get_object_or_404(Products, pk=pk)
+    serializer = ProductsSerializer(product)
     return Response(serializer.data)

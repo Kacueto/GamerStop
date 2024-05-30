@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './AgregarProductoModal.css'; // Asegúrate de que los estilos estén correctos
+import './EditarProductoModal.css';
 
-const AgregarProductoModal = ({ isOpen, onClose, onProductoAgregado, categorias }) => {
+const EditarProductoModal = ({ isOpen, onClose, producto, onProductoEditado, categorias }) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -10,16 +10,25 @@ const AgregarProductoModal = ({ isOpen, onClose, onProductoAgregado, categorias 
     const [image, setImage] = useState('');
     const [category, setCategory] = useState('');
 
+    useEffect(() => {
+        if (producto) {
+            setName(producto.name);
+            setDescription(producto.description);
+            setPrice(producto.price);
+            setStock(producto.stock);
+            setImage(producto.image);
+            setCategory(producto.category);
+        }
+    }, [producto]);
+
     const handleGuardarCambios = async () => {
         try {
-            const nuevoProducto = { name, description, price, stock, image, category };
-            console.log('Datos del nuevo producto:', JSON.stringify(nuevoProducto, null, 2));
-            const response = await axios.post('http://localhost:8000/inventory/add_product', nuevoProducto);
-            console.log('Respuesta del servidor:', response);
-            onProductoAgregado();
+            const productoEditado = { ...producto, name, description, price, stock, image, category };
+            await axios.put(`http://localhost:8000/inventory/update_product/${producto.id}`, productoEditado);
+            onProductoEditado();
             onClose();
         } catch (error) {
-            console.error('Error al agregar producto:', error.response ? error.response.data : error.message);
+            console.error('Error al editar producto:', error.response ? error.response.data : error.message);
         }
     };
 
@@ -31,7 +40,7 @@ const AgregarProductoModal = ({ isOpen, onClose, onProductoAgregado, categorias 
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                <h2>Agregar Producto</h2>
+                <h2>Editar Producto</h2>
                 <form>
                     <div className="form-group">
                         <label>Nombre:</label>
@@ -69,4 +78,4 @@ const AgregarProductoModal = ({ isOpen, onClose, onProductoAgregado, categorias 
     );
 };
 
-export default AgregarProductoModal;
+export default EditarProductoModal;

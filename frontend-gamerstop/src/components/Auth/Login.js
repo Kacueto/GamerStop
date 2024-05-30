@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../Public/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../index.css';
 
@@ -43,7 +42,7 @@ const Login = () => {
 
     return (
         <div>
-            <Navbar />
+            
             <div className="login-container d-flex justify-content-center align-items-center">
                 <div className="login-box p-4">
                     <h2>Iniciar Sesión</h2>

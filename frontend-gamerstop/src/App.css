@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+body, html {
+  height: 100%;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  background-color: #f9f9f9;
+  
+  color: #333;
+  width: 100%;
+  flex-shrink: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding-top: 200px;  
+  padding-left: 10%;
+  padding-right: 10%;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: red; /* Ajusta este color según sea necesario */
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-media a img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-center ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-center ul li {
+  margin-bottom: 10px;
+}
+
+.footer-center ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-right p {
+  margin: 5px 0;
+}
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.partners img {
+  max-width: 100px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #eee;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.container-content {
+  flex: 1;
+  padding-bottom: 20px; /* Añade un padding para evitar que el contenido quede pegado al footer */
+}
+
+.carousel-container {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.carousel-inner img {
+width: 100%;
+height: 450px;
+object-fit: cover;
 }
